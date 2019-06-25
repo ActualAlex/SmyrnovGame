@@ -162,7 +162,8 @@ namespace MyGame
         }
         public static MilitaryBase AutoCreateBase() // генерирует базу с солдатами и танками
         {
-            MilitaryBase enemy = new MilitaryBase("Nord");
+            MilitaryBase enemy = new MilitaryBase();
+            enemy.Name = "Nord";
             Soldier[] soldiers = new Soldier[5];
             int countOfsoldiers = Game.random.Next(20, 40);
             int countOfTanks = Game.random.Next(20, 30);
@@ -198,7 +199,7 @@ namespace MyGame
 
         public static void SaveGame(MilitaryBase m)
         {
-            fs = new FileStream(@"D:\save.dat", FileMode.Create);
+            fs = new FileStream(@"save.dat", FileMode.Create);
             formatter = new BinaryFormatter();
             formatter.Serialize(fs, m);
             fs.Close();
@@ -207,7 +208,7 @@ namespace MyGame
         {
             try
             {
-                fs = new FileStream(@"D:\save.dat", FileMode.Open);
+                fs = new FileStream(@"save.dat", FileMode.Open); 
                 m = (MilitaryBase)formatter.Deserialize(fs);
                 fs.Close();
             }
@@ -215,7 +216,8 @@ namespace MyGame
             {
                 Console.WriteLine("Нет сохранений игры. Игра начнется заново.");
                 Console.WriteLine("Введите название вашей военной базы");
-                m = new MilitaryBase(Console.ReadLine());
+                m = new MilitaryBase();
+                m.Name = Console.ReadLine();
             }
             return m;
         }

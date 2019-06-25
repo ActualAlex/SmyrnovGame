@@ -12,7 +12,7 @@ namespace MyGame
     class MilitaryBase
     {
         
-        public string Name { get; }
+        public string Name { get; set; }
 
         public int CountOfMonth { get; set; } = 1;
         public int CountOfPeople { get; set; }
@@ -31,9 +31,8 @@ namespace MyGame
         public List<Soldier> Soldiers { get; } = new List<Soldier>();
         public List<Worker> Workers { get; } = new List<Worker>();
 
-        public MilitaryBase(string name)
+        public MilitaryBase()
         {
-            Name = name;
             Gold = 100;
             Food = 100;
             for (int i = 1; i <= 100; i++)             

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,7 +10,8 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
-            MilitaryBase myBase;
+
+            MilitaryBase myBase = new MilitaryBase();
             MilitaryBase enemy;
             War war;
 
@@ -19,20 +21,17 @@ namespace MyGame
             {
                 case 1:
                     Console.WriteLine("Введите название вашей военной базы");
-                    myBase = new MilitaryBase(Console.ReadLine());
-                    enemy = Game.AutoCreateBase();
-                    Game.CreateArmy(myBase);
-                    war = new War(myBase, enemy);
-                    war.FindWinner();
+                    myBase.Name = Console.ReadLine();
                     break;
                 case 2:
                     myBase = Game.LoadGame();
-                    enemy = Game.AutoCreateBase();
-                    Game.CreateArmy(myBase);
-                    war = new War(myBase, enemy);
-                    war.FindWinner();
                     break;
             }
+
+            enemy = Game.AutoCreateBase();
+            Game.CreateArmy(myBase);
+            war = new War(myBase, enemy);
+            war.FindWinner();
         }
     }
 }
