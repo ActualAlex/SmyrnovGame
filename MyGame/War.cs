@@ -34,7 +34,7 @@ namespace MyGame
                 forceSoildersMb2 += t.Power;
 
             Console.WriteLine("Победитель: " + (forceSoildersMb1 > forceSoildersMb2 ? mb1.Name : mb2.Name));
-            Console.WriteLine($"Общаяя сила войск победителя: {(forceSoildersMb1 > forceSoildersMb2 ? forceSoildersMb1 : forceSoildersMb2)} Противника: {(forceSoildersMb1 < forceSoildersMb2 ? forceSoildersMb1 : forceSoildersMb2)}");
+            Console.WriteLine($"Общаяя сила войск {forceSoildersMb1} против {forceSoildersMb2}");
 
         }
 
