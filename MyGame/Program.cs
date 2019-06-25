@@ -13,9 +13,9 @@ namespace MyGame
             MilitaryBase enemy;
             War war;
 
-            int countOfPlayers = Game.ReadCountOfPlayers();
+            int newOrOld = Game.NewOrOldGame();
 
-            switch (countOfPlayers)
+            switch (newOrOld)
             {
                 case 1:
                     Console.WriteLine("Введите название вашей военной базы");

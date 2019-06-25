@@ -147,7 +147,7 @@ namespace MyGame
             return count;
         }
 
-        public static int ReadCountOfPlayers()
+        public static int NewOrOldGame()
         {
             Console.WriteLine("Начать новую игру или загрузить старую? Введите 1 или 2");
             string line = Console.ReadLine();
