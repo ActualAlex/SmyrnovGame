@@ -10,10 +10,11 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
-
             MilitaryBase myBase = new MilitaryBase();
             MilitaryBase enemy;
             War war;
+
+            Console.WriteLine("Добро пожаловать в военную стратегию \"Iron War\"");
 
             int newOrOld = Game.NewOrOldGame();
 

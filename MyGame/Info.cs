@@ -9,7 +9,6 @@ namespace MyGame
     {
         public static void Rule(MilitaryBase m)
         {
-            Console.WriteLine("Добро пожаловать в военную стратегию \"Iron War\"");
             Console.WriteLine("У вас есть пол года на подготовку своей армии.");
             Console.WriteLine("Добывайте золото, еду, содавайте профессиональную армию и в бой!");
             Console.WriteLine("Игра сохраняется автоматически, вы всегда сможете продолжить игру позже.");
