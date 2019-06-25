@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accident.cs" />
-    <Compile Include="City.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="MilitaryBase.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="MyExeptions\GoldDeficitException.cs" />
-    <Compile Include="MyExeptions\RangeException.cs" />
     <Compile Include="MyExeptions\SoldiersDeficitException.cs" />
     <Compile Include="People\People.cs" />
     <Compile Include="People\Soldier.cs" />
@@ -53,6 +53,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tank.cs" />
+    <Compile Include="War.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

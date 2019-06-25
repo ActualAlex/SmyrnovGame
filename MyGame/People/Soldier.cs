@@ -5,6 +5,7 @@ using System.Text;
 
 namespace MyGame
 {
+    [Serializable]
     public class Soldier : People
     {
         public int Force { get; }
@@ -13,7 +14,7 @@ namespace MyGame
         public Soldier(string name)
         {
             Name = name;
-            Force = random.Next(50,100);
+            Force = Game.random.Next(50,100);
         }
 
         public override string ToString()

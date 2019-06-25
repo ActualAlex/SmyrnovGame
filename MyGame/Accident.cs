@@ -5,46 +5,27 @@ using System.Text;
 
 namespace MyGame
 {
-    class Accident
+    static class Accident
     {
-        City city;
-        Random random = new Random();
-        
-        public Accident(City city)
+        private static MilitaryBase mb;
+        public static void TryGetSomeAccident(Object m, EventArgs e)
         {
-            this.city = city;
-            switch (random.Next(0, 5))
+
+            if ( m is MilitaryBase)
             {
-                case 1:
-                    MiningBlast();
-                    break;
-                case 2:
-                    LongRains();
-                    break;
-                case 3:
-                    Sabotage();
-                    break;
+                mb = (MilitaryBase)m;
+                switch (Game.random.Next(30))
+                {
+                    case 1:
+                        Console.WriteLine("Произошел взрыв на шахте!!!Мы потеряли 20% золота!!!");
+                        mb.Gold -= ((mb.Gold * 20) / 100);
+                        break;
+                    case 2:
+                        Console.WriteLine("На складе с провизией появились крысы!!! Пропало 10% нашей еды!!!");
+                        mb.Food -= ((mb.Food * 10) / 100);
+                        break;
+                }
             }
-        }
-       
-        public void MiningBlast()
-        {
-            Console.WriteLine("Произошел взрыв на шахте!!! Погибли 10 рабочих! Мы потеряли 20% золота!!!");
-            city.Gold -= ((city.Gold * 20) / 100);
-            city.Workers.RemoveRange(0,10);
-        }
-
-        public void LongRains()
-        {
-            Console.WriteLine("На складе с провизией появились крысы!!! Пропало 10% нашей еды!!!");
-            city.Food -= ((city.Food * 10) / 100);
-        }
-
-        public void Sabotage()
-        {
-            Console.WriteLine("Шпионы взорвали наши танки!!! Мы уничтожили противника, но потеряли 2 танка и 5 солдат");
-            city.Soldiers.RemoveRange(0, 5);
-            city.Tanks.RemoveRange(0, 2);
-        }
+        }  
     }
 }

@@ -8,9 +8,10 @@ namespace MyGame
     class GoldDeficitException : Exception
     {
 
+
         public override string Message
         {
-            get { return "Не хватает золота"; }
+            get { return $"Нехватает золота"; }
         }
     }
 }

@@ -9,18 +9,29 @@ namespace MyGame
     {
         static void Main(string[] args)
         {
-            City city = new City("Kiev");
-            Info.Rule(city);
-            for (int i = 0; i < 6; i++)
+            MilitaryBase myBase;
+            MilitaryBase enemy;
+            War war;
+
+            int countOfPlayers = Game.ReadCountOfPlayers();
+
+            switch (countOfPlayers)
             {
-                city.SetSoldiersAndWorkers();
-                city.MineGoldAndFood();
-                city.MakeTanks();
-                city.PeopleEat();
-                // Info.WriteListOfSoldiers(city);
-                // Info.WriteListOfWorkers(city);
-                Info.WriteAllInfoCity(city);
-                city.CountOfMonth++;
+                case 1:
+                    Console.WriteLine("Введите название вашей военной базы");
+                    myBase = new MilitaryBase(Console.ReadLine());
+                    enemy = Game.AutoCreateBase();
+                    Game.CreateArmy(myBase);
+                    war = new War(myBase, enemy);
+                    war.FindWinner();
+                    break;
+                case 2:
+                    myBase = Game.LoadGame();
+                    enemy = Game.AutoCreateBase();
+                    Game.CreateArmy(myBase);
+                    war = new War(myBase, enemy);
+                    war.FindWinner();
+                    break;
             }
         }
     }

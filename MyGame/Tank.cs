@@ -5,7 +5,8 @@ using System.Text;
 
 namespace MyGame
 {
-    class Tank
+    [Serializable]
+    public class Tank
     {
         int SerialNumber { get; }
         public int Power { get; }
@@ -18,7 +19,12 @@ namespace MyGame
             int forceOfSoldiers = 0;
             foreach (Soldier s in soldiers)
                 forceOfSoldiers += s.Force;
-            Power = new Random().Next(50,100) + forceOfSoldiers;           
+            Power = Game.random.Next(50,100) + forceOfSoldiers;           
+        }
+
+        public override string ToString()
+        {
+            return $"Танк №{SerialNumber}, Мощность: {Power}";
         }
     }
 }

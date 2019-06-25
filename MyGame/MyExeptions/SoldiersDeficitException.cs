@@ -7,10 +7,11 @@ namespace MyGame
 {
     class SoldiersDeficitException : Exception
     {
+     
 
         public override string Message
         {
-            get { return "Не хватает солдат"; }
+            get { return "Нехватает солдат"; }
         }
     }
 }

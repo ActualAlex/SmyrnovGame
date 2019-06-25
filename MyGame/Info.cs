@@ -7,31 +7,26 @@ namespace MyGame
 {
     static class Info
     {
-        public static void Rule(City city)
+        public static void Rule(MilitaryBase m)
         {
             Console.WriteLine("Добро пожаловать в военную стратегию \"Iron War\"");
             Console.WriteLine("У вас есть пол года на подготовку своей армии.");
-            Console.WriteLine("Добывайте золото, кормите хорошо свой народ, содавайте профессиональную армию и в бой!");
+            Console.WriteLine("Добывайте золото, еду, содавайте профессиональную армию и в бой!");
+            Console.WriteLine("Игра сохраняется автоматически, вы всегда сможете продолжить игру позже.");
+            Console.WriteLine("__________________________________________________________________________________");
             Console.WriteLine("На старте у вас есть:");
-            Console.WriteLine("Золото: {0}, Еды: {1}, Рабочих: {2}, Солдат: {3}, Танков: {4} (Танкисты: {5} чел.)", city.Gold, city.Food, city.CountOfPeople, city.Soldiers.Count, city.Tanks.Count, city.Tanks.Count * 5);
+            Console.WriteLine("Золото: {0}, Еды: {1}, Рабочих: {2}, Солдат: {3}, Танков: {4} (Танкисты: {5} чел.)", m.Gold, m.Food, m.Workers.Count, m.Soldiers.Count, m.Tanks.Count, m.Tanks.Count * 5);
+            Console.WriteLine("__________________________________________________________________________________");
+        }
+      
+        public static void WriteAllInfoCity(MilitaryBase m)
+        {
+            Console.WriteLine("__________________________________________________________________________________");
+            Console.WriteLine($"За {m.CountOfMonth}-й месяц: Добыли Золота: {m.NewGold}, добыли Еды: {m.NewFood}, Потратили еды: {m.SpentFood}, Потратили золота: {m.SpentGold}");
+            Console.WriteLine($"Погибло собратьев: {m.DeadPeople} чел, Прибыло подкрепление: {m.NewPeople} чел.");
+            Console.WriteLine("Всего: Золота: {0}, Еды: {1}, Рабочих: {2}, Солдат: {3}, Танков: {4} (Танкисты: {5} чел.)",m.Gold,m.Food,m.Workers.Count,m.Soldiers.Count,m.Tanks.Count,m.Tanks.Count*5);
+            Console.WriteLine("__________________________________________________________________________________");
 
         }
-        public static void WriteListOfWorkers(City city)
-        {
-            foreach (Worker w in city.Workers)
-                Console.WriteLine(w);
-        }
-        public static void WriteListOfSoldiers(City city)
-        {
-            foreach (Soldier s in city.Soldiers)
-                Console.WriteLine(s);
-        }
-        public static void WriteAllInfoCity(City city)
-        {
-            Console.WriteLine($"{city.CountOfMonth}-й месяц: Город: {city.Name}, Погибло: {city.DeadPeople} чел, Прибыло: {city.NewPeople} чел.");
-            Console.WriteLine("Золото: {0}, Еды: {1}, Рабочих: {2}, Солдат: {3}, Танков: {4} (Танкисты: {5} чел.)",city.Gold,city.Food,city.CountOfPeople,city.Soldiers.Count,city.Tanks.Count,city.Tanks.Count*5);
-        }
-
-
     }
 }
